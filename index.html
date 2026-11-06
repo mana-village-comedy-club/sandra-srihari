@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The official personal and creator profile of Sandra Srihari.">
+  <title>Sandra Srihari | Official Website</title>
+  <style>
+    :root {
+      --site-primary: #C49A52;
+      --site-secondary: #211A16;
+      --site-background: #0C0B0A;
+      --site-on-primary: #17110A;
+      --site-on-secondary: #F8F0E3;
+      --site-on-background: #F7F1E8;
+      --site-font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --site-font-heading: Georgia, "Times New Roman", serif;
+      --site-heading-scale: 1;
+      --site-spacing-scale: 1;
+      --site-radius-scale: 1;
+      --site-decoration-opacity: 1;
+      --muted: #B7AA9A;
+      --line: rgba(220, 190, 145, .2);
+      --surface: #15120F;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--site-background); color: var(--site-on-background); font-family: var(--site-font-body); }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .app-root { min-height: 100vh; width: 100%; overflow: hidden; background-color: light-dark(var(--site-background), var(--site-background)); color: var(--site-on-background); border-radius: 0; }
+    .ambient { position: absolute; pointer-events: none; opacity: var(--site-decoration-opacity); border-radius: 50%; filter: blur(2px); }
+    .ambient.one { width: 420px; height: 420px; right: -150px; top: 40px; background: radial-gradient(circle, rgba(196,154,82,.18), transparent 68%); }
+    .ambient.two { width: 360px; height: 360px; left: -180px; top: 650px; background: radial-gradient(circle, rgba(137,91,49,.15), transparent 70%); }
+    header { position: relative; z-index: 2; max-width: 1160px; margin: auto; padding: calc(24px * var(--site-spacing-scale)) 28px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+    .brand { display: flex; align-items: center; gap: 12px; letter-spacing: .04em; }
+    .monogram { width: 42px; height: 42px; border: 1px solid var(--site-primary); color: var(--site-primary); display: grid; place-items: center; border-radius: 50%; font-family: var(--site-font-heading); font-size: 18px; }
+    .brand-name { font-size: 12px; text-transform: uppercase; letter-spacing: .18em; line-height: 1.5; }
+    nav { display: flex; gap: 27px; align-items: center; color: var(--muted); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+    nav a:hover, .text-link:hover { color: var(--site-primary); }
+    .hero { max-width: 1160px; min-height: 620px; margin: auto; padding: 90px 28px 100px; display: grid; grid-template-columns: 1.2fr .8fr; align-items: center; gap: 55px; position: relative; }
+    .eyebrow { color: var(--site-primary); font-size: 11px; letter-spacing: .28em; text-transform: uppercase; display: flex; align-items: center; gap: 12px; }
+    .eyebrow:before { content: ""; width: 34px; height: 1px; background: var(--site-primary); }
+    h1, h2, h3 { font-family: var(--site-font-heading); font-weight: 400; }
+    h1 { font-size: clamp(56px, 8vw, 104px); line-height: .98; letter-spacing: -.045em; margin: 25px 0 22px; }
+    h1 span { display: block; color: var(--site-primary); font-style: italic; }
+    .hero-copy { max-width: 520px; color: var(--muted); font-size: 16px; line-height: 1.85; }
+    .actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 34px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 22px; border: 1px solid var(--site-primary); border-radius: calc(3px * var(--site-radius-scale)); color: var(--site-on-primary); background: var(--site-primary); font-size: 11px; text-transform: uppercase; letter-spacing: .14em; transition: .2s ease; }
+    .btn:hover { transform: translateY(-2px); background: #D8B775; }
+    .btn.secondary { background: transparent; color: var(--site-on-background); border-color: var(--line); }
+    .portrait-frame { position: relative; max-width: 370px; width: 100%; justify-self: center; aspect-ratio: 4 / 5; border: 1px solid rgba(196,154,82,.55); padding: 12px; background: linear-gradient(145deg, rgba(196,154,82,.12), rgba(255,255,255,.015)); }
+    .portrait-inner { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 30px; background: radial-gradient(ellipse at 50% 35%, #403020 0%, #211811 38%, #100D0B 78%); position: relative; overflow: hidden; }
+    .portrait-inner:before { content: ""; position: absolute; width: 230px; height: 230px; border: 1px solid rgba(196,154,82,.22); border-radius: 50%; top: 13%; }
+    .portrait-inner:after { content: ""; position: absolute; width: 290px; height: 290px; border: 1px solid rgba(196,154,82,.12); border-radius: 50%; top: 7%; }
+    .portrait-mark { position: relative; z-index: 1; font-family: var(--site-font-heading); color: var(--site-primary); font-size: 86px; line-height: 1; }
+    .portrait-caption { position: relative; z-index: 1; margin-top: 22px; color: #E9DCC8; font-size: 10px; letter-spacing: .25em; text-transform: uppercase; }
+    .portrait-note { position: absolute; bottom: 18px; color: #A99882; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; }
+    .section { max-width: 1160px; margin: auto; padding: 85px 28px; position: relative; }
+    .section-top { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 35px; }
+    h2 { font-size: clamp(38px, 5vw, 58px); margin: 12px 0 0; letter-spacing: -.025em; }
+    .section-intro { max-width: 420px; color: var(--muted); line-height: 1.8; font-size: 14px; }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 50px; }
+    .quote-card { background: linear-gradient(145deg, #282017, #17120E); border: 1px solid var(--line); padding: 35px; min-height: 245px; display: flex; flex-direction: column; justify-content: space-between; }
+    .quote-mark { color: var(--site-primary); font-family: var(--site-font-heading); font-size: 58px; line-height: .7; }
+    .quote-card p { font-family: var(--site-font-heading); font-size: 25px; line-height: 1.4; color: #F0E4D3; margin: 12px 0; }
+    .quote-card small { color: var(--muted); text-transform: uppercase; letter-spacing: .17em; font-size: 9px; }
+    .about-text { color: var(--muted); line-height: 1.9; font-size: 15px; }
+    .about-text strong { color: var(--site-on-background); font-weight: 500; }
+    .creator { background: var(--site-secondary); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .creator-inner { max-width: 1160px; margin: auto; padding: 80px 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 55px; align-items: center; }
+    .creator-panel { border: 1px solid var(--line); padding: 35px; background: linear-gradient(145deg, rgba(196,154,82,.1), rgba(0,0,0,.12)); }
+    .play-icon { width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--site-primary); color: var(--site-primary); font-size: 20px; margin-bottom: 25px; }
+    .creator-panel h3 { font-size: 34px; margin: 0 0 12px; }
+    .creator-panel p { color: var(--muted); line-height: 1.8; font-size: 14px; }
+    .creator-copy p { color: var(--muted); line-height: 1.9; font-size: 15px; }
+    .contact-card { border: 1px solid var(--line); background: var(--surface); padding: 44px; display: flex; justify-content: space-between; align-items: center; gap: 30px; }
+    .contact-card p { color: var(--muted); line-height: 1.7; max-width: 500px; }
+    .gallery-tools { display: flex; gap: 12px; flex-wrap: wrap; margin: 24px 0; }
+    .upload-label { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 18px; border: 1px solid var(--site-primary); color: var(--site-primary); cursor: pointer; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+    .upload-label:hover { background: rgba(196,154,82,.12); }
+    .upload-label input { display: none; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px; }
+    .gallery-item { border: 1px solid var(--line); background: var(--surface); padding: 10px; min-width: 0; }
+    .gallery-item img, .gallery-item video { display: block; width: 100%; max-height: 360px; aspect-ratio: 4 / 3; object-fit: contain; background: #080706; }
+    .gallery-item p { color: var(--muted); font-size: 12px; overflow-wrap: anywhere; margin: 10px 2px 2px; }
+    .gallery-help { color: var(--muted); font-size: 13px; line-height: 1.8; }
+    footer { border-top: 1px solid var(--line); padding: 26px 28px; color: var(--muted); font-size: 11px; letter-spacing: .08em; }
+    .footer-inner { max-width: 1160px; margin: auto; display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    @media (max-width: 760px) {
+      header { padding: 18px 20px; }
+      nav { gap: 13px; font-size: 9px; }
+      nav a:nth-child(2) { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 70px 22px 75px; gap: 45px; text-align: center; }
+      .eyebrow { justify-content: center; }
+      .hero-copy { margin: auto; }
+      .actions { justify-content: center; }
+      .portrait-frame { max-width: 300px; }
+      .section { padding: 65px 22px; }
+      .section-top, .contact-card { align-items: flex-start; flex-direction: column; }
+      .about-grid, .creator-inner { grid-template-columns: 1fr; gap: 28px; }
+      .creator-inner { padding: 65px 22px; }
+      .contact-card { padding: 30px; }
+    }
+    @media (max-width: 420px) { .brand-name { font-size: 10px; } nav { gap: 9px; } nav a { font-size: 8px; } h1 { font-size: 56px; } }
+  </style>
+</head>
+<body>
+  <main class="app-root" id="home">
+    <div class="ambient one"></div><div class="ambient two"></div>
+    <header>
+      <a class="brand" href="#home" aria-label="Sandra Srihari home">
+        <span class="monogram">SS</span>
+        <span class="brand-name">Sandra Srihari<br><span style="color:var(--muted);font-size:9px;letter-spacing:.22em">OFFICIAL WEBSITE</span></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a><a href="#creator">Creator</a><a href="#contact">Contact</a>
+      </nav>
+    </header>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Personal • Creator • Journey</div>
+        <h1>Sandra <span>Srihari</span></h1>
+        <p class="hero-copy">Welcome to my little corner of the internet. A place to share my story, creative interests, and the things I love making along the way.</p>
+        <div class="actions"><a class="btn" href="#about">Discover My Story</a><a class="btn secondary" href="#creator">Explore My Channel</a></div>
+      </div>
+      <div class="portrait-frame" aria-label="Decorative initials portrait placeholder">
+        <div class="portrait-inner"><div class="portrait-mark">SS</div><div class="portrait-caption">Sandra Srihari</div><div class="portrait-note">A personal space to grow & create</div></div>
+      </div>
+    </section>
+    <section class="section" id="about">
+      <div class="section-top"><div><div class="eyebrow">A little introduction</div><h2>About Me</h2></div><p class="section-intro">Every journey has a story. This is where mine begins — with creativity, curiosity, and a love for connecting with people.</p></div>
+      <div class="about-grid">
+        <div class="quote-card"><div class="quote-mark">“</div><p>Dream big. Stay genuine. Keep creating.</p><small>The spirit behind this space</small></div>
+        <div class="about-text"><p>Hello! I'm <strong>Sandra Srihari</strong>. Welcome to my official personal website.</p><p>This space brings together my personal profile and creator journey. You can discover more about my work, follow the videos I share, and find the links I choose to make public.</p><p><strong>More details coming soon.</strong> This page can be updated with a personal photo, a fuller introduction, achievements, and your preferred contact or social links.</p></div>
+      </div>
+    </section>
+    <section class="creator" id="creator">
+      <div class="creator-inner">
+        <div class="creator-copy"><div class="eyebrow">My creative side</div><h2>Made to Share<br><em style="color:var(--site-primary)">A Little Joy.</em></h2><p>Comedy, stories, and entertainment bring people together. Visit Mana Village Comedy Club for Telugu village comedy, family fun, and Shorts.</p><a class="btn" href="https://www.youtube.com/@ManaVillageComedyClub" target="_blank" rel="noopener noreferrer">Visit YouTube Channel ↗</a></div>
+        <div class="creator-panel"><div class="play-icon">▶</div><h3>Mana Village<br>Comedy Club</h3><p>Mana Ooru. Mana Navvulu.<br>Telugu • Comedy • Fun</p><a class="text-link" href="https://www.youtube.com/@ManaVillageComedyClub" target="_blank" rel="noopener noreferrer" style="color:var(--site-primary);font-size:11px;letter-spacing:.12em;text-transform:uppercase">Watch on YouTube ↗</a></div>
+      </div>
+    </section>
+    <section class="section" id="gallery">
+      <div class="section-top"><div><div class="eyebrow">Photos & videos</div><h2>My Gallery</h2></div><p class="section-intro">Choose photos or video files from your device to preview them in this gallery.</p></div>
+      <div class="gallery-tools">
+        <label class="upload-label">＋ Add Photos <input id="photo-upload" type="file" accept="image/*" multiple></label>
+        <label class="upload-label">＋ Add Videos <input id="video-upload" type="file" accept="video/*" multiple></label>
+      </div>
+      <p class="gallery-help">Note: These uploads are temporary previews on this device/browser. They are not saved to the live website or shared online. To publish photos/videos for everyone, the files must be added to your website hosting or embedded from a video platform.</p>
+      <div class="gallery-grid" id="gallery-grid" aria-live="polite"></div>
+    </section>
+    <section class="section" id="contact">
+      <div class="contact-card"><div><div class="eyebrow">Stay connected</div><h2>Let's Connect.</h2><p>For now, you can connect through the YouTube channel. A public email or other social links can be added here whenever you're ready.</p></div><a class="btn secondary" href="https://www.youtube.com/@ManaVillageComedyClub" target="_blank" rel="noopener noreferrer">YouTube ↗</a></div>
+    </section>
+    <footer><div class="footer-inner"><span>© <span id="year">2026</span> Sandra Srihari. All rights reserved.</span><span>PERSONAL WEBSITE • MADE WITH PURPOSE</span></div></footer>
+  </main>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const galleryGrid = document.getElementById('gallery-grid');
+    function addGalleryFiles(input, kind) {
+      Array.from(input.files || []).forEach(file => {
+        const url = URL.createObjectURL(file);
+        const card = document.createElement('div');
+        card.className = 'gallery-item';
+        const media = document.createElement(kind === 'photo' ? 'img' : 'video');
+        media.src = url;
+        if (kind === 'video') {
+          media.controls = true;
+          media.preload = 'metadata';
+        } else {
+          media.alt = file.name;
+        }
+        const caption = document.createElement('p');
+        caption.textContent = file.name;
+        card.append(media, caption);
+        galleryGrid.append(card);
+      });
+      input.value = '';
+    }
+    document.getElementById('photo-upload').addEventListener('change', event => addGalleryFiles(event.target, 'photo'));
+    document.getElementById('video-upload').addEventListener('change', event => addGalleryFiles(event.target, 'video'));
+  </script>
+</body>
+</html>
