@@ -212,6 +212,8 @@
     const adminStatus = document.getElementById('admin-status');
     const fileInput = document.getElementById('media-file');
     let adminIsSignedIn = false;
+    // Prevent overlapping gallery refreshes from rendering the same file twice.
+    let galleryRenderId = 0;
 
     const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
       auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
@@ -245,12 +247,15 @@
     }
 
     async function renderGallery() {
+      const thisRenderId = ++galleryRenderId;
       galleryGrid.replaceChildren();
       galleryStatus.textContent = 'Loading gallery…';
       const { data, error } = await client.storage.from(STORAGE_BUCKET).list('', {
         limit: 100,
         sortBy: { column: 'created_at', order: 'desc' }
       });
+      // Ignore older requests if another refresh started while this one was loading.
+      if (thisRenderId !== galleryRenderId) return;
       if (error) {
         galleryStatus.textContent = 'Gallery could not be loaded. Please refresh the page.';
         console.error('Gallery list error:', error.message);
@@ -391,4 +396,3 @@
   </script>
 </body>
 </html>
- 
